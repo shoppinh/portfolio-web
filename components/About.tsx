@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-
 const About = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
@@ -23,7 +22,7 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Image
-              src="/placeholder.svg"
+              src="/avatar.jpg"
               alt="Mac Trung Kien"
               width={400}
               height={400}
