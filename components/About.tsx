@@ -37,16 +37,16 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p className="text-lg mb-6">
-              I'm a versatile developer skilled in front-end, mobile app, and backend development. With a passion for
+              I&apos;m a versatile developer skilled in front-end, mobile app, and backend development. With a passion for
               creating seamless user experiences and robust applications, I bring ideas to life through code.
             </p>
             <p className="text-lg mb-6">
               My journey in development has led me to work on diverse projects, from e-commerce platforms to mobile apps
-              and performance monitoring tools. I'm always eager to learn new technologies and apply them to solve
+              and performance monitoring tools. I&apos;m always eager to learn new technologies and apply them to solve
               real-world problems.
             </p>
             <p className="text-lg mb-6">
-              I'm an Optimizely Certified Commerce Developer, showcasing my expertise in building scalable e-commerce
+              I&apos;m an Optimizely Certified Commerce Developer, showcasing my expertise in building scalable e-commerce
               solutions.
             </p>
             <a
