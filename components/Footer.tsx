@@ -75,7 +75,7 @@ const Footer = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <motion.a
-                href="https://github.com/yourusername"
+                href="https://github.com/shoppinh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-orange-500 dark:text-orange-200 dark:hover:text-orange-400 transition-colors"
@@ -85,7 +85,7 @@ const Footer = () => {
                 <Github className="w-6 h-6" />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/kien-mac-trung-679829193/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-orange-500 dark:text-orange-200 dark:hover:text-orange-400 transition-colors"
