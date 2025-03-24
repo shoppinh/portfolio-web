@@ -28,24 +28,24 @@ const experiences = [
 
 const ExperienceCard = ({ experience }: { experience: (typeof experiences)[0] }) => (
   <motion.div
-    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6"
+    className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg mb-6 border-l-4 border-orange-500 dark:border-orange-600"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
   >
-    <h3 className="text-xl font-semibold mb-2">{experience.position}</h3>
-    <h4 className="text-lg text-gray-600 dark:text-gray-300 mb-2">{experience.company}</h4>
-    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{experience.period}</p>
-    <p className="text-gray-700 dark:text-gray-300">{experience.description}</p>
+    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-orange-50">{experience.position}</h3>
+    <h4 className="text-lg text-gray-700 dark:text-orange-200 mb-2">{experience.company}</h4>
+    <p className="text-sm text-gray-500 dark:text-orange-300/70 mb-4">{experience.period}</p>
+    <p className="text-gray-700 dark:text-orange-100/80">{experience.description}</p>
   </motion.div>
 )
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="experience" className="py-20 bg-orange-50 dark:bg-black">
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-3xl font-bold mb-8 text-center"
+          className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-orange-50"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
