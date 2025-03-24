@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,6 +35,22 @@ body::-webkit-scrollbar {
   100% { background-position: 0% 50%; }
 }
 
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  100% { transform: rotate(30deg) translate(100%, 0); }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -51,13 +68,60 @@ body::-webkit-scrollbar {
   .hover-scale {
     @apply transition-transform duration-300 hover:scale-[1.02];
   }
+  
+  .link-effect {
+    position: relative;
+  }
+
+  .link-effect::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: hsl(var(--primary));
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .link-effect:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .primary-cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .primary-cta::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+    transform: rotate(30deg) translate(-100%, 0);
+    animation: shimmer 3s infinite;
+  }
 }
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 10%;
-    --card: 0 0% 100%;
+    --card: 30 30% 98%;
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
@@ -79,34 +143,38 @@ body::-webkit-scrollbar {
     --chart-3: 15 80% 50%;
     --chart-4: 35 100% 60%;
     --chart-5: 20 90% 45%;
+    --navy: 223 50% 16%;
+    --cream: 37 54% 97%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 10%;
+    --background: 223 50% 16%;
     --foreground: 30 30% 98%;
-    --card: 0 0% 15%;
+    --card: 223 40% 19%;
     --card-foreground: 30 30% 98%;
-    --popover: 0 0% 15%;
+    --popover: 223 45% 15%;
     --popover-foreground: 30 30% 98%;
     --primary: 30 100% 50%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 20 15% 20%;
+    --secondary: 223 30% 25%;
     --secondary-foreground: 30 100% 60%;
-    --muted: 0 0% 20%;
+    --muted: 223 35% 20%;
     --muted-foreground: 30 20% 70%;
     --accent: 25 100% 60%;
     --accent-foreground: 0 0% 10%;
     --destructive: 0 70% 40%;
     --destructive-foreground: 30 30% 98%;
-    --border: 30 15% 25%;
-    --input: 30 15% 25%;
+    --border: 223 25% 25%;
+    --input: 223 25% 25%;
     --ring: 30 100% 50%;
     --chart-1: 30 100% 50%;
     --chart-2: 25 90% 60%;
     --chart-3: 15 80% 50%;
     --chart-4: 35 100% 60%;
     --chart-5: 20 90% 45%;
+    --navy: 223 50% 16%;
+    --cream: 37 24% 87%;
   }
 
   * {
@@ -114,15 +182,16 @@ body::-webkit-scrollbar {
   }
   
   h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
     @apply font-semibold tracking-tighter;
   }
 
   h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl;
+    @apply text-5xl md:text-6xl lg:text-7xl -tracking-wider;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl;
+    @apply text-4xl md:text-5xl -tracking-wide;
   }
 
   .animate-page {
@@ -131,5 +200,28 @@ body::-webkit-scrollbar {
 
   .animate-card {
     animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animated {
+    animation: fadeIn 0.5s ease-out forwards, slideUp 0.5s ease-out forwards;
+  }
+  
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
+    .animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
